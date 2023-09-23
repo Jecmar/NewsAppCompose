@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.newsapp.data.event.OnBoardingEvent
 import com.example.newsapp.ui.components.Button
 import com.example.newsapp.ui.components.TextButton
 import com.example.newsapp.ui.onboarding.components.OnBoardingPage
@@ -28,7 +29,9 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    event: (OnBoardingEvent) -> Unit
+) {
     val scope = rememberCoroutineScope()
 
     val pagerState = rememberPagerState(initialPage = 0) {
@@ -88,8 +91,8 @@ fun OnBoardingScreen() {
                     text = buttonState.value[1],
                     onClick = {
                         scope.launch {
-                            if (pagerState.currentPage == 3) {
-                                //TODO: Navigate to home screen
+                            if (pagerState.currentPage == 2) {
+                                event(OnBoardingEvent.SaveAppEntry)
                             } else {
                                 pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
                             }
