@@ -16,16 +16,17 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     appEntryUseCases: AppEntryUseCases
-): ViewModel() {
+) : ViewModel() {
     var splashCondition by mutableStateOf(true)
         private set
 
     var startDestination by mutableStateOf(Route.AppStartNavigation.route)
         private set
 
-    init{
+    init {
         appEntryUseCases.readAppEntry().onEach {
-            startDestination = if(it) Route.NewsNavigation.route else Route.AppStartNavigation.route
+            startDestination =
+                if (it) Route.NewsNavigation.route else Route.AppStartNavigation.route
             delay(300)
             splashCondition = false
         }.launchIn(viewModelScope)
