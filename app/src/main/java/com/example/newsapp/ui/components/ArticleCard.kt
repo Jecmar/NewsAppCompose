@@ -1,7 +1,6 @@
 package com.example.newsapp.ui.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.widget.Space
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
