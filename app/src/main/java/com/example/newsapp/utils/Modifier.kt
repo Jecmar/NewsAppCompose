@@ -28,7 +28,7 @@ fun Modifier.shimmerEffect() = composed {
 }
 
 fun Modifier.searchBarBorder() = composed {
-    if(isSystemInDarkTheme()){
+    if(!isSystemInDarkTheme()){
         border(
             width = 1.dp,
             color = Color.Black,
