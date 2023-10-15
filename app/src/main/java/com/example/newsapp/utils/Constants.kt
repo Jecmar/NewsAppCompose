@@ -3,4 +3,7 @@ package com.example.newsapp.utils
 object Constants {
     const val USER_SETTINGS = "userSettings"
     const val APP_ENTRY = "appEntry"
+    const val API_KEY = ""
+    const val PAGE_SIZE = 10
+    const val BASE_URL = "https://newsapi.org/v2/"
 }
