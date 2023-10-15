@@ -53,7 +53,7 @@ fun SearchBar(
     }
 
     Box(
-        modifier = Modifier
+        modifier = modifier
     ) {
         TextField(
             modifier = Modifier
