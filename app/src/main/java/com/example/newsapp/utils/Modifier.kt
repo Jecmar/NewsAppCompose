@@ -22,19 +22,20 @@ fun Modifier.shimmerEffect() = composed {
         initialValue = 0.2f, targetValue = 0.9f, animationSpec = infiniteRepeatable(
             animation = tween(durationMillis = 1000),
             repeatMode = RepeatMode.Reverse
-        )
+        ),
+        label = ""
     ).value
     background(color = colorResource(id = R.color.shimmer).copy(alpha = alpha))
 }
 
 fun Modifier.searchBarBorder() = composed {
-    if(!isSystemInDarkTheme()){
+    if (!isSystemInDarkTheme()) {
         border(
             width = 1.dp,
             color = Color.Black,
             shape = MaterialTheme.shapes.medium
         )
-    }else{
+    } else {
         this
     }
 }
