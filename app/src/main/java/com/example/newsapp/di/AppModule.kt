@@ -13,7 +13,10 @@ import com.example.newsapp.domain.repository.NewsRepository
 import com.example.newsapp.domain.usecases.appentry.AppEntryUseCases
 import com.example.newsapp.domain.usecases.appentry.ReadAppEntry
 import com.example.newsapp.domain.usecases.appentry.SaveAppEntry
+import com.example.newsapp.domain.usecases.news.DeleteArticle
+import com.example.newsapp.domain.usecases.news.GetArticles
 import com.example.newsapp.domain.usecases.news.GetNews
+import com.example.newsapp.domain.usecases.news.InsertArticle
 import com.example.newsapp.domain.usecases.news.NewsUseCases
 import com.example.newsapp.domain.usecases.news.SearchNews
 import com.example.newsapp.utils.Constants.BASE_URL
@@ -63,10 +66,14 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsUseCases(
-        newsRepository: NewsRepository
+        newsRepository: NewsRepository,
+        newsDao: NewsDao
     ): NewsUseCases = NewsUseCases(
         getNews = GetNews(newsRepository),
-        searchNews = SearchNews(newsRepository)
+        getArticles = GetArticles(newsDao),
+        searchNews = SearchNews(newsRepository),
+        insertArticle = InsertArticle(newsDao),
+        deleteArticle = DeleteArticle(newsDao)
     )
 
     @Provides
