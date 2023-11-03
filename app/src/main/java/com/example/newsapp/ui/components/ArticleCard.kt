@@ -102,6 +102,7 @@ fun ArticleCardPreview() {
         "",
         "",
         "",
+        "",
         "2 hours",
         Source("", "BBC"),
         "This is a example title of article from api services",
